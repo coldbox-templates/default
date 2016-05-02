@@ -19,8 +19,6 @@
 	}
 
 	// Your Application Routes
-	addRoute( pattern="golf", handler="main", action="index");
-
 	addRoute(pattern=":handler/:action?");
 
 
