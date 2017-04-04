@@ -1,4 +1,4 @@
-# Advanced Template
+# Advanced Script Template
 
 An advanced template with all the bells and whistles in script format
 
