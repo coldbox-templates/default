@@ -1,8 +1,8 @@
 {
     "name":"Advanced Script APP Template",
-    "version":"1.3.0",
+    "version":"1.4.0",
     "author":"You",
-    "location":"https://github.com/coldbox-templates/advanced-script/archive/v1.3.0.zip",
+    "location":"https://github.com/coldbox-templates/advanced-script/archive/v1.4.0.zip",
     "slug":"cbtemplate-advanced-script",
     "createPackageDirectory":false,
     "type":"mvc",
