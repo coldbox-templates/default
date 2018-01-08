@@ -1,34 +1,34 @@
 {
-    "name": "Advanced Script APP Template",
-    "version": "1.5.0",
-    "author": "You",
-    "location": "https://github.com/coldbox-templates/advanced-script/archive/v1.5.0.zip",
-    "slug": "cbtemplate-advanced-script",
-    "createPackageDirectory": false,
-    "type": "mvc",
-    "keywords": "",
-    "homepage": "",
-    "documentation": "",
-    "repository": {
-        "type": "",
-        "url": ""
+    "name":"Advanced Script APP Template",
+    "version":"1.6.0",
+    "author":"You",
+    "location":"https://github.com/coldbox-templates/advanced-script/archive/v1.6.0.zip",
+    "slug":"cbtemplate-advanced-script",
+    "createPackageDirectory":false,
+    "type":"mvc",
+    "keywords":"",
+    "homepage":"",
+    "documentation":"",
+    "repository":{
+        "type":"",
+        "url":""
     },
-    "bugs": "",
-    "shortDescription": "",
-    "contributors": [],
-    "ignore": [],
-    "devDependencies": {
-        "testbox": "^2.5.0"
+    "bugs":"",
+    "shortDescription":"",
+    "contributors":[],
+    "ignore":[],
+    "devDependencies":{
+        "testbox":"^2.5.0"
     },
-    "installPaths": {
-        "coldbox": "coldbox",
-        "testbox": "testbox"
+    "installPaths":{
+        "coldbox":"coldbox",
+        "testbox":"testbox"
     },
-    "dependencies": {
-        "coldbox": "5.0.0-rc.1"
+    "dependencies":{
+        "coldbox":"5.0.0-rc.1"
     },
-    "scripts": {
-        "postVersion": "package set location='https://github.com/coldbox-templates/advanced-script/archive/v`package version`.zip'",
-        "postPublish": "!git push --follow-tags"
+    "scripts":{
+        "postVersion":"package set location='https://github.com/coldbox-templates/advanced-script/archive/v`package version`.zip'",
+        "postPublish":"!git push --follow-tags"
     }
 }
