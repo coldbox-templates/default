@@ -14,7 +14,7 @@
 <!--- Absolute path to capture test coverage for --->
 <cfparam name="url.coveragePathToCapture"		default="#expandPath( '/root' )#">
 <!--- File globbing paths to ignore --->
-<cfparam name="url.coverageBlacklist"			default="/testbox,/coldbox,/tests,/Application.cfc,/config/Application.cfc,/views/Application.cfc,/index.cfm">
+<cfparam name="url.coverageBlacklist"			default="/testbox,/coldbox,/tests,/Application.cfc,/config/Application.cfc,/views/Application.cfc,/index.cfm,/modules">
 <!--- Absolute directory path to output code coverage browser (uncomment to enable) --->
 <!---<cfparam name="url.coverageBrowserOutputDir"	default="#expandPath( '/tests/coverageReport' )#">--->
 
