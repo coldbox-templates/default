@@ -9,5 +9,14 @@
 <cfparam name="url.propertiesFilename" 	default="TEST.properties">
 <cfparam name="url.propertiesSummary" 	default="false" type="boolean">
 
+<!--- Enable code coverage (Requires FusionReactor) --->
+<cfparam name="url.coverageEnabled"				default="true">
+<!--- Absolute path to capture test coverage for --->
+<cfparam name="url.coveragePathToCapture"		default="#expandPath( '/root' )#">
+<!--- File globbing paths to ignore --->
+<cfparam name="url.coverageBlacklist"			default="/testbox,/coldbox,/tests,/Application.cfc,/config/Application.cfc,/views/Application.cfc,/index.cfm">
+<!--- Absolute directory path to output code coverage browser (uncomment to enable) --->
+<!---<cfparam name="url.coverageBrowserOutputDir"	default="#expandPath( '/tests/coverageReport' )#">--->
+
 <!--- Include the TestBox HTML Runner --->
 <cfinclude template="/testbox/system/runners/HTMLRunner.cfm" >
