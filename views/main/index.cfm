@@ -41,22 +41,21 @@
 		</ul>
 		</section>
 
-		<section id="modules">
-		<div class="pb-2 mt-4 mb-2 border-bottom">
-	        <h2>
-	        	Registered Modules
-			</h2>
-		</div>
-		<p>Below are your application's loaded modules, click on them to visit them.</p>
-		<ul>
-			<cfloop collection="#getSetting("Modules")#" item="thisModule">
-			<li><a href="#event.buildLink( getModuleConfig( thisModule ).inheritedEntryPoint )#">#thisModule#</a></li>
-			</cfloop>
-		</ul>
-		<cfif structCount( getSetting("Modules") ) eq 0>
-			<div class="alert alert-info">There are no modules in your application</div>
+		<cfif structCount( getSetting("Modules") )>
+			<section id="modules">
+			<div class="pb-2 mt-4 mb-2 border-bottom">
+		        <h2>
+		        	Registered Modules
+				</h2>
+			</div>
+			<p>Below are your application's loaded modules, click on them to visit them.</p>
+			<ul>
+				<cfloop collection="#getSetting("Modules")#" item="thisModule">
+				<li><a href="#event.buildLink( getModuleConfig( thisModule ).inheritedEntryPoint )#">#thisModule#</a></li>
+				</cfloop>
+			</ul>
+			</section>
 		</cfif>
-		</section>
 
 		<section id="test-harness">
 		<div class="pb-2 mt-4 mb-2 border-bottom">
