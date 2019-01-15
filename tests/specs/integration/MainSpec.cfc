@@ -39,21 +39,21 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 				setup();
 			});
 
-			it( "+homepage renders", function(){
+			it( "homepage renders", function(){
 				var event = execute( event="main.index", renderResults=true );
 				expect(	event.getValue( name="welcomemessage", private=true ) ).toBe( "Welcome to ColdBox!" );
 			});
 
-			it( "+doSomething relocates", function(){
+			it( "doSomething relocates", function(){
 				var event = execute( event="main.doSomething" );
 				expect(	event.getValue( "relocate_event", "" ) ).toBe( "main.index" );
 			});
 
-			it( "+app start fires", function(){
+			it( "app start fires", function(){
 				var event = execute( "main.onAppInit" );
 			});
 
-			it( "+can handle exceptions", function(){
+			it( "can handle exceptions", function(){
 				//You need to create an exception bean first and place it on the request context FIRST as a setup.
 				var exceptionBean = createMock( "coldbox.system.web.context.ExceptionBean" )
 					.init( 
@@ -71,11 +71,11 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 
 			describe( "Request Events", function(){
 
-				it( "+fires on start", function(){
+				it( "fires on start", function(){
 					var event = execute( "main.onRequestStart" );
 				});
 
-				it( "+fires on end", function(){
+				it( "fires on end", function(){
 					var event = execute( "main.onRequestEnd" );
 				});
 
@@ -83,11 +83,11 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 
 			describe( "Session Events", function(){
 
-				it( "+fires on start", function(){
+				it( "fires on start", function(){
 					var event = execute( "main.onSessionStart" );
 				});
 
-				it( "+fires on end", function(){
+				it( "fires on end", function(){
 					//Place a fake session structure here, it mimics what the handler receives
 					URL.sessionReference = structnew();
 					URL.applicationReference = structnew();

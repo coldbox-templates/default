@@ -41,10 +41,4 @@
 		//Place exception handler below:
 	}
 
-	function onMissingTemplate(event,rc,prc){
-		//Grab missingTemplate From request collection, placed by ColdBox
-		var missingTemplate = event.getValue("missingTemplate");
-
-	}
-
 }

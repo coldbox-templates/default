@@ -65,7 +65,7 @@
 			</h2>
 		</div>
 		<p>
-			You can find your entire test harness in the following location: <code>#getSetting("ApplicationPath")#tests</code>
+			You can find your entire test harness in the following location: <a href="#getSetting("appMapping")#/tests/runner.cfm"><code>#getSetting("appMapping")#/tests/runner.cfm</code></a>
 		</p>
 		<table class="table table-striped">
 			<thead>
@@ -153,7 +153,7 @@
 		        <code>/config/ColdBox.cfc</code>: Your application configuration file
 		    </li>
 			<li>
-		        <code>/config/Routes.cfm</code>: Your URL Mappings
+		        <code>/config/Routes.cfc</code>: Your URL Mappings
 		    </li>
 		    <li>
 		        <code>/config/WireBox.cfc</code>: Your WireBox Binder
