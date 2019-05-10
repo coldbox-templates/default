@@ -2,19 +2,23 @@
 <div class="jumbotron mt-sm-5 p-4">
 	<div class="row">
 		<div class="col-lg-5 col-md-6">
-			<img src="includes/images/ColdBoxLogo2015_300.png" class="float-left m-2 mt-5" alt="logo"/>
 			<p class="text-center">
-				<a class="btn btn-primary" href="http://coldbox.ortusbooks.com" target="_blank" title="Read our ColdBox Manual" rel="tooltip">
+				<img src="includes/images/ColdBoxLogo2015_300.png" class="m-2 mt-2" alt="logo"/>
+				<a class="btn btn-primary" href="https://coldbox.ortusbooks.com" target="_blank" title="Read our ColdBox Manual" rel="tooltip">
 					<strong>Read ColdBox Manual</strong>
 				</a>
 			</p>
 		</div>
 
 		<div class="col-lg-7 col-md-6">
-			<h1 class="display-3">#prc.welcomeMessage#</h1>
+			<h1 class="display-3">
+				#prc.welcomeMessage#
+			</h1>
+			<div class="badge badge-info mb-2">
+				<strong>#getSetting("codename",1)# #getSetting("version",1)# (#getsetting("suffix",1)#)</strong>
+			</div>
 			<p class="lead">
-				You are now running <strong>#getSetting("codename",1)# #getSetting("version",1)# (#getsetting("suffix",1)#)</strong>.
-				Welcome to the next generation of ColdFusion (CFML) applications.  You can now start building your application with ease, we already did the hard work
+				Welcome to modern ColdFusion (CFML) development.  You can now start building your application with ease, we already did the hard work
 				for you.
 			</p>
 		</div>
@@ -58,14 +62,12 @@
 		</cfif>
 
 		<section id="test-harness">
-		<div class="pb-2 mt-4 mb-2 border-bottom">
+		<div class="pb-2 mt-4 mb-2">
 			<h2>
 				Application Test Harness
 			</h2>
 		</div>
-		<p>
-			You can find your entire test harness in the following location: <a href="#getSetting("appMapping")#/tests/runner.cfm"><code>#getSetting("appMapping")#/tests/runner.cfm</code></a>
-		</p>
+
 		<table class="table table-striped">
 			<thead>
 				<th>File/Folder</th>
@@ -106,9 +108,19 @@
 				</tr>
 				<tr>
 					<td>
-						<em>runner.cfm</em>
+						<a href="#getSetting( "appMapping" )#/tests/runner.cfm">
+							#getSetting( "appMapping" )#runner.cfm
+						</a>
 					</td>
 					<td>A TestBox runner so you can execute your tests.</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="#getSetting( "appMapping" )#/tests/index.cfm">
+							#getSetting( "appMapping" )#index.cfm
+						</a>
+					</td>
+					<td>A TestBox browser, so you can browse and execute specs</td>
 				</tr>
 			</tbody>
 		</table>
@@ -118,7 +130,7 @@
 		<div class="pb-2 mt-4 mb-2 border-bottom">
        		<h2>ColdBox URL Actions</h2>
 	   	</div>
-		<p>ColdBox can use some very important URL actions to interact with your application. You can try them out below:</p>
+		<p>ColdBox can use some very important URL actions to interact with your application. You can also use CommandBox <code>coldbox reinit</code> and reinit from the CLI. You can try them out below:</p>
 		<table class="table table-striped">
 			<thead>
 				<th>URL Action</th>
@@ -148,20 +160,23 @@
             You can now start editing your application and building great ColdBox enabled apps. Important files & locations:
         </p>
 		<ol>
+			<li>
+		        <code>/config/CacheBox.cfc</code>: Your CacheBox Configuration file
+		    </li>
 		    <li>
 		        <code>/config/ColdBox.cfc</code>: Your application configuration file
 		    </li>
 			<li>
-		        <code>/config/Routes.cfc</code>: Your URL Mappings
+		        <code>/config/Routes.cfc</code>: Your URL Router
 		    </li>
 		    <li>
 		        <code>/config/WireBox.cfc</code>: Your WireBox Binder
 		    </li>
 		    <li>
-		        <code>/handlers</code>: Your application event handlers
+		        <code>/handlers</code>: Your controller event handlers
 		    </li>
 		    <li>
-		        <code>/interceptors</code>: System interceptors
+		        <code>/interceptors</code>: Global interceptors
 		    </li>
 			<li>
 		        <code>/includes</code>: Assets, Helpers, i18n, templates and more.
@@ -176,7 +191,10 @@
 		        <code>/models</code>: Your model layer
 		    </li>
 			<li>
-		        <code>/modules</code>: Your application modules
+		        <code>/modules</code>: Your CommandBox managed modules
+			</li>
+			<li>
+		        <code>/modules_app</code>: Your application modules
 		    </li>
 			<li>
 		        <code>/tests</code>: Your BDD testing harness (Just DO IT!!)
@@ -194,45 +212,38 @@
 			<ul class="card-body nav flex-column bg-light">
 				<li class="nav-item"><strong>Important Links</strong></li>
 				<li class="nav-item">
-	                <a class="nav-link" href="http://www.coldbox.org">ColdBox Site</a>
+	                <a class="nav-link" href="https://www.coldbox.org" target="_blank">ColdBox Site</a>
 	            </li>
 	            <li class="nav-item">
-	                <a class="nav-link" href="http://blog.coldbox.org">Blog</a>
+	                <a class="nav-link" href="https://www.ortussolutions.com/blog" target="_blank">Blog</a>
 	            </li>
 	            <li class="nav-item">
-	                <a class="nav-link" href="https://ortussolutions.atlassian.net/browse/COLDBOX">Issue Tracker</a>
+	                <a class="nav-link" href="https://ortussolutions.atlassian.net/browse/COLDBOX" target="_blank">Issue Tracker</a>
 	            </li>
 				<li class="nav-item">
-	                <a class="nav-link" href="https://github.com/ColdBox/coldbox-platform">Source Code</a>
+	                <a class="nav-link" href="https://github.com/ColdBox/coldbox-platform" target="_blank">Source Code</a>
 	            </li>
 				<li class="nav-item">
-	                <a class="nav-link" href="http://coldbox.ortusbooks.com">Manual</a>
+	                <a class="nav-link" href="https://coldbox.ortusbooks.com" target="_blank">Manual</a>
 	            </li>
 				<li class="nav-item">
-					<a class="nav-link" href="http://apidocs.coldbox.org">Quick API Docs</a>
+					<a class="nav-link" href="https://apidocs.coldbox.org" target="_blank">Quick API Docs</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="http://www.coldbox.org/forgebox" rel="tooltip" title="Community for interceptors, modules, etc.">ForgeBox</a>
+					<a class="nav-link" href="https://forgebox.io" rel="tooltip" title="Community for interceptors, modules, etc." target="_blank">ForgeBox</a>
 				</li>
-				<li class="nav-item"><strong>Training</strong></li>
 	            <li class="nav-item">
-	                <a class="nav-link" href="http://www.ortussolutions.com/services/training">Course Catalog</a>
+	                <a class="nav-link" href="https://www.ortussolutions.com/services/training" target="_blank">Training</a>
 	            </li>
-				<li class="nav-item">
-					<a class="nav-link" href="http://coldbox.org/media">Training Videos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="http://coldbox.org/media/connection">ColdBox Connection</a>
-				</li>
 	            <li class="nav-item"><strong>Support</strong></li>
 	            <li class="nav-item">
-	                <a class="nav-link" href="http://groups.google.com/group/coldbox">Mailing List</a>
+	                <a class="nav-link" href="https://groups.google.com/group/coldbox">Mailing List</a>
 	            </li>
 				<li class="nav-item">
-					<a class="nav-link" href="http://www.coldbox.org/support/overview">Community Support</a>
+					<a class="nav-link" href="https://www.coldbox.org/support/overview">Community Support</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="http://www.ortussolutions.com/services">Professional Support</a>
+					<a class="nav-link" href="https://www.ortussolutions.com/services">Professional Support</a>
 				</li>
 			</ul>
 		</div>
