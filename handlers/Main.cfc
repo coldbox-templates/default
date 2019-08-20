@@ -1,4 +1,4 @@
-﻿component extends="coldbox.system.EventHandler"{
+component extends="coldbox.system.EventHandler"{
 
 	// Default Action
 	function index(event,rc,prc){
