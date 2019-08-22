@@ -1,4 +1,4 @@
-﻿<cfoutput>
+<cfoutput>
 <div class="jumbotron mt-sm-5 p-4">
 	<div class="row">
 		<div class="col-lg-5 col-md-6">
