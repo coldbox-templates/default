@@ -1,8 +1,8 @@
 {
     "name":"Advanced Script APP Template",
-    "version":"1.25.1",
+    "version":"1.26.0",
     "author":"You",
-    "location":"https://github.com/coldbox-templates/advanced-script/archive/v1.25.1.zip",
+    "location":"https://github.com/coldbox-templates/advanced-script/archive/v1.26.0.zip",
     "slug":"cbtemplate-advanced-script",
     "createPackageDirectory":false,
     "type":"mvc",
@@ -18,8 +18,8 @@
     "contributors":[],
     "ignore":[],
     "devDependencies":{
-		"testbox":"^3.0.0",
-		"commandbox-dotenv":"*",
+        "testbox":"^3.0.0",
+        "commandbox-dotenv":"*",
         "commandbox-cfconfig":"*",
         "commandbox-cfformat":"*"
     },
@@ -32,9 +32,9 @@
     },
     "scripts":{
         "postVersion":"package set location='https://github.com/coldbox-templates/advanced-script/archive/v`package version`.zip'",
-		"postPublish":"!git push --follow-tags",
-		"postInstall":"pathExists .env || cp .env.example .env",
-		"format":"cfformat config/**/*.cfc,handlers/**/*.cfc,interceptors/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,tests/specs/**/*.cfc,*.cfc --overwrite",
+        "postPublish":"!git push --follow-tags",
+        "postInstall":"pathExists .env || cp .env.example .env",
+        "format":"cfformat config/**/*.cfc,handlers/**/*.cfc,interceptors/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,tests/specs/**/*.cfc,*.cfc --overwrite",
         "format:check":"cfformat config/**/*.cfc,handlers/**/*.cfc,interceptors/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,tests/specs/**/*.cfc,*.cfc --check"
     }
 }
