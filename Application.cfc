@@ -13,7 +13,7 @@ component {
 
 	// Java Integration
 	this.javaSettings = {
-		loadPaths               : [ ".\lib" ],
+		loadPaths               : [ expandPath("/lib") ],
 		loadColdFusionClassPath : true,
 		reloadOnChange          : false
 	};
