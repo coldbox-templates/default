@@ -11,6 +11,20 @@ component {
 	this.sessionTimeout    = createTimespan( 0, 0, 30, 0 );
 	this.setClientCookies  = true;
 
+	// //create database
+	// try{
+	// 	queryExecute("CREATE DATABASE IF NOT EXISTS coldbox CHARACTER SET = 'utf8' COLLATE = 'utf8_general_ci';",{},{ datasource={
+	// 		class: 'com.mysql.cj.jdbc.Driver'
+	// 		, bundleName: 'com.mysql.cj'
+	// 		, bundleVersion: '8.0.15'
+	// 		, connectionString: 'jdbc:mysql://localhost:3306/mysql?useUnicode=true&characterEncoding=UTF-8&serverTimezone=America/Los_Angeles&useLegacyDatetimeCode=true'
+	// 		, username: 'root'
+	// 		, password: '2h2=he2+E'
+	// 	} });
+	// } catch(e){}
+	
+	// this.defaultDatasource = "coldbox";
+
 	// Java Integration
 	this.javaSettings = {
 		loadPaths               : [ expandPath("/lib") ],
