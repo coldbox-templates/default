@@ -91,7 +91,7 @@
 						<em>resources</em>
 					</td>
 					<td>
-						Test resources like fixtures, itegrations, etc.
+						Test resources like fixtures, integrations, etc.
 					</td>
 				</tr>
 				<tr>
@@ -182,7 +182,7 @@
 		        <code>/includes</code>: Assets, Helpers, i18n, templates and more.
 		    </li>
 			<li>
-		        <code>/layouts</code>:Your application skin layouts
+		        <code>/layouts</code>: Your application skin layouts
 		    </li>
 		    <li>
 		        <code>/lib</code>: Where Jar files can be integrated
