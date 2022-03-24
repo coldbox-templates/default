@@ -164,8 +164,8 @@
 	<footer class="w-100 bottom-0 position-fixed border-top py-3 mt-5 bg-light">
 		<div class="container">
 			<p class="float-end">
-				<a href="##" class="btn btn-dark" role="button">
-					<i class="bi bi-arrow-bar-up"></i> Top
+				<a href="##" class="btn btn-info rounded-circle shadow" role="button">
+					<i class="bi bi-arrow-bar-up"></i> <span class="visually-hidden">Top</span>
 				</a>
 			</p>
 			<p>
