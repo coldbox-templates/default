@@ -24,7 +24,7 @@
 	<div class="row py-5 row-cols-lg-2 gx-4">
 		<div class="col d-flex align-items-start">
 			<div class="bg-light text-blue flex-shrink-0 me-3 px-2 fs-2 rounded-circle shadow-sm border border-5 border-white">
-				<i class="bi bi-broadcast"></i>
+				<i class="bi bi-broadcast" aria-hidden="true"></i>
 			</div>
 			<div>
 				<h2 class="text-blue">Event Handlers</h2>
@@ -36,7 +36,7 @@
 					<cfloop list="#getSetting("RegisteredHandlers")#" index="handler">
 						<a href="#event.buildLink( handler )#" class="list-group-item list-group-item-action d-flex gap-2 py-3" title="Run Event">
 							<div class="rounded-circle flex-shrink-0 text-success px-1">
-								<i class="bi bi-play-btn"></i> 
+								<i class="bi bi-play-btn" aria-hidden="true"></i> 
 							</div>
 							<div class="d-flex gap-2 w-100 justify-content-between">#handler#</div>
 						</a>
@@ -58,7 +58,7 @@
 					<cfloop collection="#getSetting("Modules")#" item="thisModule">
 						<a href="#event.buildLink( getModuleConfig( thisModule ).inheritedEntryPoint )#" class="list-group-item list-group-item-action d-flex gap-2 py-3" title="Run Event">
 							<div class="rounded-circle flex-shrink-0 text-success px-1">
-								<i class="bi bi-play-btn"></i> 
+								<i class="bi bi-play-btn" aria-hidden="true"></i> 
 							</div>
 							<div class="d-flex gap-2 w-100 justify-content-between">#thisModule#</div>
 						</a>
@@ -93,7 +93,7 @@
 							</td>
 							<td>
 								<a class="btn btn-dark" href="index.cfm?fwreinit=1">
-									<i class="bi bi-power"></i> Run
+									<i class="bi bi-power" aria-hidden="true"></i> Run
 								</a>
 							</td>
 						</tr>
@@ -121,7 +121,7 @@
 						role="button"
 						target="_blank"
 					>
-						<i class="bi bi-binoculars"></i>
+						<i class="bi bi-binoculars" aria-hidden="true"></i>
 						Test Browser
 					</a>
 
@@ -131,7 +131,7 @@
 						role="button"
 						target="_blank"
 					>
-						<i class="bi bi-activity"></i>
+						<i class="bi bi-activity" aria-hidden="true"></i>
 						Test Runner
 					</a>
 				</div>
