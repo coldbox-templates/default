@@ -104,7 +104,7 @@
 
 		<div class="col d-flex align-items-start">
 			<div class="bg-light text-blue flex-shrink-0 me-3 px-2 fs-2 rounded-circle shadow-sm border border-5 border-white">
-				<i class="bi bi-card-checklist"></i>
+				<i class="bi bi-card-checklist" aria-hidden="true"></i>
 			</div>
 			<div>
 				<h2 class="text-blue">Tests</h2>
