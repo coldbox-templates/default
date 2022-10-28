@@ -44,18 +44,14 @@ services:
       - coldbox_db
     platform: linux/x86_64 # Needed for Mac's on the M1 chip
     image: ortussolutions/commandbox:lucee5
-    # Environment Variables
+    # Pull in .env file as environment variables to the container
+    env_file:
+      - .env
+    # Docker-specific environment variables - will override values from env_file
     environment:
       CFCONFIG_ADMINPASSWORD: coldbox
       DB_HOST: coldbox_db
       DB_PORT: 4306
-      DB_DATABASE: coldbox
-      DB_DRIVER: MySQL
-      DB_USER: root
-      DB_PASSWORD: coldbox
-      DB_CLASS: com.mysql.jdbc.Driver
-      DB_BUNDLEVERSION: 8.0.19
-      DB_BUNDLENAME: com.mysql.cj
     # Ports
     ports:
       - "8080:8080"
