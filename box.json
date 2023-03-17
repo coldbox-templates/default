@@ -16,7 +16,9 @@
     "bugs":"",
     "shortDescription":"",
     "contributors":[],
-    "ignore":[],
+    "ignore":[
+		"_tasks/**"
+	],
     "devDependencies":{
         "testbox":"*",
         "commandbox-dotenv":"*",
