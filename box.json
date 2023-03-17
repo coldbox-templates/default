@@ -1,6 +1,6 @@
 {
     "name":"Advanced Script APP Template",
-    "version":"6.15.0",
+    "version":"6.16.0",
     "author":"You",
     "location":"forgeboxStorage",
     "slug":"cbtemplate-advanced-script",
@@ -17,8 +17,8 @@
     "shortDescription":"",
     "contributors":[],
     "ignore":[
-		"_tasks/**"
-	],
+        "_tasks/**"
+    ],
     "devDependencies":{
         "testbox":"*",
         "commandbox-dotenv":"*",
