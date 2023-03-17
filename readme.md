@@ -1,6 +1,6 @@
-# Advanced Script Template
+# Default ColdBox Template
 
-An advanced template with all the bells and whistles in script format
+The default ColdBox HMVC application template.
 
 ## License
 
@@ -14,7 +14,7 @@ Source Code
 
 ## Quick Installation
 
-Each application templates contains a `box.json` so it can leverage [CommandBox](http://www.ortussolutions.com/products/commandbox) for its dependencies.  
+Each application templates contains a `box.json` so it can leverage [CommandBox](http://www.ortussolutions.com/products/commandbox) for its dependencies.
 Just go into each template directory and type:
 
 ```bash
@@ -30,7 +30,7 @@ box server start
 And run the application.
 
 ---
- 
+
 ### THE DAILY BREAD
 
  > "I am the way, and the truth, and the life; no one comes to the Father, but by me (JESUS)" Jn 14:1-12
