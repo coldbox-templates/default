@@ -1,6 +1,6 @@
 {
     "name":"Advanced Script APP Template",
-    "version":"6.17.0",
+    "version":"6.18.0",
     "author":"You",
     "location":"forgeboxStorage",
     "slug":"cbtemplate-advanced-script",
@@ -17,8 +17,8 @@
     "shortDescription":"",
     "contributors":[],
     "ignore":[
-		"changelog.md",
-		".github/**"
+        "changelog.md",
+        ".github/**"
     ],
     "devDependencies":{
         "testbox":"*",
@@ -40,8 +40,8 @@
         "format:watch":"cfformat watch path='config/,handlers/,interceptors/,models/,modules_app/,tests/specs/,*.cfc' settingsPath='.cfformat.json'",
         "docker:build":"!docker build --no-cache -t my-coldbox-app -f ./build/Dockerfile ./",
         "docker:run":"!docker run -it -p 8080:8080 my-coldbox-app",
-		"docker:bash":"!docker run -it my-coldbox-app /bin/bash",
-		"docker:stack" : "!docker compose -f build/docker-compose.yaml ${1}"
+        "docker:bash":"!docker run -it my-coldbox-app /bin/bash",
+        "docker:stack":"!docker compose -f build/docker-compose.yaml ${1}"
     },
     "testbox":{
         "runner":"/tests/runner.cfm"
