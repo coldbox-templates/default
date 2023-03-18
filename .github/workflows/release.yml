@@ -66,12 +66,6 @@ jobs:
           tag_exists_error: false
           message: "Latest Release"
 
-      - name: Create Github Release
-        uses: taiki-e/create-gh-release-action@v1.6.2
-        with:
-          changelog: changelog.md
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Commit Version Bump
         uses: EndBug/add-and-commit@v9.1.1
         with:
