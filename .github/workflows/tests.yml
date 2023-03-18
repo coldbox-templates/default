@@ -14,6 +14,7 @@ jobs:
     env:
       DB_USER: root
       DB_PASSWORD: root
+      WEB_PORT: 60299
     strategy:
       fail-fast: false
       matrix:
@@ -57,8 +58,10 @@ jobs:
 
       - name: Start ${{ matrix.cfengine }} Server
         run: |
-          box server start serverConfigFile="server-${{ matrix.cfengine }}.json" --noSaveSettings --debug
-          curl http://127.0.0.1:60299
+          box server set web.http.port=${{ env.WEB_PORT }}
+          box server set app.cfengine=${{ matrix.cfengine }}
+          box server start --debug
+          curl http://127.0.0.1:${{ env.WEB_PORT }}
 
       - name: Run Tests
         run: |
