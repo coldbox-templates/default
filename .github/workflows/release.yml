@@ -3,8 +3,12 @@ name: ForgeBox Release
 on:
   workflow_dispatch:
     inputs:
-        # Each major version has a release branch. By default we use the latest stable
-        versionType:
+       doTests:
+          description: 'Run Tests Before release'
+          required: false
+          default: false
+          type: boolean
+       versionType:
           description: 'Bump Version'
           required: false
           default: 'minor'
@@ -18,6 +22,7 @@ jobs:
   # Tests First baby! We fail, no build :(
   #############################################
   tests:
+    if: ${{ inputs.doTests }}
     uses: ./.github/workflows/tests.yml
 
   #############################################
