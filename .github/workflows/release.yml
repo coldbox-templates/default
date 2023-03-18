@@ -50,7 +50,7 @@ jobs:
         with:
           forgeboxAPIKey: ${{ secrets.FORGEBOX_TOKEN }}
 
-      - name: Get Latest Version
+      - name: Prepare For Build
         run: |
           echo "VERSION=`cat box.json | jq '.version' -r`" >> $GITHUB_ENV
 
