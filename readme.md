@@ -42,6 +42,28 @@ box server start
 
 Code to your liking and enjoy!
 
+## Dockerfile
+
+We have included a [`build/Dockerfile`](build/Dockerfile) so you can build docker containers from your source code.  We have also added two scripts in your `box.json` so you can build the docker image and run the docker image using our [CommandBox Docker](https://hub.docker.com/r/ortussolutions/commandbox) containers.
+
+```bash
+# Build a docker container
+run-script docker:build
+# Run the container
+run-script docker:run
+# Go into the container's bash prompt
+run-script docker:bash
+```
+
+## Docker Compose Stack
+
+We have included a [`build/docker-compose.yaml`](build/docker-compose.yml) stack that can be used to run the application in a container alongside a database.  We have included support for MySQL, PostgreSQL and MSSQL.  We have also included the `run-script docker:stack` command you so you compose the stack up or down.
+
+```bash
+run-script docker:stack up
+run-script docker:stack down
+```
+
 ## VSCode Helpers
 
 We have included two vscode helpers for you:
