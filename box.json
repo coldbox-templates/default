@@ -1,6 +1,6 @@
 {
     "name":"Advanced Script APP Template",
-    "version":"6.16.0",
+    "version":"6.17.0",
     "author":"You",
     "location":"forgeboxStorage",
     "slug":"cbtemplate-advanced-script",
@@ -17,7 +17,7 @@
     "shortDescription":"",
     "contributors":[],
     "ignore":[
-        "_tasks/**"
+		"changelog.md"
     ],
     "devDependencies":{
         "testbox":"*",
@@ -26,8 +26,8 @@
         "commandbox-cfformat":"*"
     },
     "installPaths":{
-        "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "coldbox":"lib/vendor/coldbox/",
+        "testbox":"lib/vendor/testbox/"
     },
     "dependencies":{
         "coldbox":"^6.0.0"

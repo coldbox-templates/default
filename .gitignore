@@ -19,7 +19,6 @@ npm-debug.log
 yarn-error.log
 
 ## Ignored Dependencies
-coldbox/*
-testbox/*
+lib/vendor/**
 modules/*
 modules/**/apidocs/**
