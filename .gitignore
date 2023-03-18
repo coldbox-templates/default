@@ -20,5 +20,4 @@ yarn-error.log
 
 ## Ignored Dependencies
 lib/vendor/**
-modules/*
-modules/**/apidocs/**
+modules/**
