@@ -1,11 +1,10 @@
 name: Test Suites
 
-# We are a reusable Workflow only
 on:
+  push:
+    branches:
+      - "v*"
   workflow_call:
-    secrets:
-      SLACK_WEBHOOK_URL:
-        required: true
 
 jobs:
   tests:
@@ -23,11 +22,10 @@ jobs:
         uses: actions/checkout@v3.2.0
 
       # Not Needed in this module
-      #- name: Setup Database and Fixtures
-      #  run: |
-      #    sudo /etc/init.d/mysql start
-      #    mysql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} -e 'CREATE DATABASE coolblog;'
-      #    mysql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} < test-harness/tests/resources/coolblog.sql
+      - name: Setup Database and Fixtures
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} -e 'CREATE DATABASE coldbox;'
 
       - name: Setup Java
         uses: actions/setup-java@v3.9.0
@@ -38,35 +36,23 @@ jobs:
       - name: Setup CommandBox CLI
         uses: Ortus-Solutions/setup-commandbox@v2.0.1
 
-      # Not Needed in this module
-      #- name: Setup Environment For Testing Process
-      #  working-directory: ./test-harness
-      #  run: |
-      #    # Setup .env
-      #    touch .env
-      #    # ENV
-      #    printf "DB_HOST=localhost\n" >> .env
-      #    printf "DB_DATABASE=mydatabase\n" >> .env
-      #    printf "DB_DRIVER=MySQL\n" >> .env
-      #    printf "DB_USER=${{ env.DB_USER }}\n" >> .env
-      #    printf "DB_PASSWORD=${{ env.DB_PASSWORD }}\n" >> .env
-      #    printf "DB_CLASS=com.mysql.cj.jdbc.Driver\n" >> .env
-      #    printf "DB_BUNDLEVERSION=8.0.19\n" >> .env
-      #    printf "DB_BUNDLENAME=com.mysql.cj\n" >> .env
+      - name: Setup Environment For Testing Process
+        run: |
+          # Setup .env
+          touch .env
+          # ENV
+          printf "DB_HOST=localhost\n" >> .env
+          printf "DB_DATABASE=coldbox\n" >> .env
+          printf "DB_DRIVER=MySQL\n" >> .env
+          printf "DB_USER=${{ env.DB_USER }}\n" >> .env
+          printf "DB_PASSWORD=${{ env.DB_PASSWORD }}\n" >> .env
+          printf "DB_CLASS=com.mysql.cj.jdbc.Driver\n" >> .env
+          printf "DB_BUNDLEVERSION=8.0.19\n" >> .env
+          printf "DB_BUNDLENAME=com.mysql.cj\n" >> .env
 
-      - name: Cache CommandBox Dependencies
-        uses: actions/cache@v3
-        if: ${{ true }}
-        with:
-          path: ~/.CommandBox/artifacts
-          key: ${{ runner.OS }}-commandbox-cache-${{ hashFiles( 'box.json' ) }}-${{ hashFiles( 'test-harness/box.json' ) }}
-          restore-keys: |
-            ${{ runner.OS }}-commandbox-cache-${{ hashFiles( 'box.json' ) }}-${{ hashFiles( 'test-harness/box.json' ) }}
-
-      - name: Install Test Harness Dependencies
+      - name: Install Dependencies
         run: |
           box install
-          cd test-harness && box install
 
       - name: Start ${{ matrix.cfengine }} Server
         run: |
@@ -75,7 +61,6 @@ jobs:
 
       - name: Run Tests
         run: |
-          mkdir -p test-harness/tests/results
           box testbox run --verbose outputFile=test-harness/tests/results/test-results outputFormats=json,antjunit
 
       - name: Publish Test Results
@@ -106,16 +91,3 @@ jobs:
           path: |
             .engine/**/logs/*
             .engine/**/WEB-INF/cfusion/logs/*
-
-      - name: Slack Notifications
-        # Only on failures and NOT in pull requests
-        if: ${{ failure() && !startsWith( 'pull_request', github.event_name ) }}
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: coding
-          SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#ff00ff'
-          SLACK_ICON_EMOJI: ":bell:"
-          SLACK_MESSAGE: '${{ github.repository }} tests failed :cry:'
-          SLACK_TITLE: ${{ github.repository }} Tests For ${{ matrix.cfengine }} failed
-          SLACK_USERNAME: CI
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}

@@ -6,9 +6,10 @@ on:
       - "main"
       - "master"
       - "development"
+      - "v*"
   pull_request:
     branches:
-      - development
+      - 'v*'
 
 jobs:
   # UPDATE TO THE MODULE REPO SO PR'S CAN REUSE IT
