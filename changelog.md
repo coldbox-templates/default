@@ -16,5 +16,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Latest ColdBox standards
 * UI Updates
 * Latest Alpine + Bootstrap Combo
-* Markdown linting
 * vscode introspection and helpers
+* Docker build and compose consolidation to the `build` folder
+* Cleanup of `tests` to new standards

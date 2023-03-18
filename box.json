@@ -17,7 +17,8 @@
     "shortDescription":"",
     "contributors":[],
     "ignore":[
-		"changelog.md"
+		"changelog.md",
+		".github/**"
     ],
     "devDependencies":{
         "testbox":"*",

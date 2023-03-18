@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
     inputs:
         # Each major version has a release branch. By default we use the latest stable
-        majorVersion:
-          description: 'Which major version to release'
+        versionType:
+          description: 'Bump Version'
           required: false
-          default: 'v6.x'
+          default: 'minor'
           type: choice
           options:
-          - v6.x
-          - v7.x
+          - minor
+          - patch
 
 jobs:
   #############################################
@@ -44,13 +44,25 @@ jobs:
         with:
           forgeboxAPIKey: ${{ secrets.FORGEBOX_TOKEN }}
 
-      # - name: Tag Version
-      #   uses: rickstaa/action-create-tag@v1.6.1
-      #   with:
-      #     tag: "latest"
-      #     tag_exists_error: false
-      #     message: "Latest release"
+      - name: Get Latest Version
+        run: |
+          echo "VERSION=`cat box.json | jq '.version' -r`" >> $GITHUB_ENV
 
-      # - name: Publish To ForgeBox
-      #   run: |
-      #     box forgebox publish --force
+      - name: Tag Version
+        uses: rickstaa/action-create-tag@v1.6.1
+        with:
+          tag: "${{ env.VERSION }}"
+          tag_exists_error: false
+          message: "Latest Release"
+
+      - name: Publish To ForgeBox & Bump to next release
+        run: |
+          box forgebox publish --force
+          box bump --${{ inputs.versionType }} noTagVersion
+
+      - name: Commit Version Bump
+        uses: EndBug/add-and-commit@v9.1.1
+        with:
+          author_name: Github Actions
+          author_email: info@ortussolutions.com
+          message: 'Version bump'
