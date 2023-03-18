@@ -1,4 +1,4 @@
-name: App Template CI
+name: ForgeBox Release
 
 on:
   workflow_dispatch:
