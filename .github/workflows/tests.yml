@@ -3,7 +3,8 @@ name: Test Suites
 on:
   push:
     branches:
-      - "v*"
+      - "v6.x"
+      - "v7.x"
   workflow_call:
 
 jobs:
