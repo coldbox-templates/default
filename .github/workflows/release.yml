@@ -30,7 +30,7 @@ jobs:
   #############################################
   build:
     name: Build & Publish
-    if: ${{ success() }}
+    if: ${{ success() || !inputs.doTests }}
     needs: tests
     runs-on: ubuntu-20.04
     steps:
