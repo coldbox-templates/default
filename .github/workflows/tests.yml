@@ -65,13 +65,14 @@ jobs:
 
       - name: Run Tests
         run: |
-          box testbox run --verbose outputFile=test-harness/tests/results/test-results outputFormats=json,antjunit
+          mkdir -p tests/results
+          box testbox run --verbose outputFile=tests/results/test-results outputFormats=json,antjunit
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
-          junit_files: test-harness/tests/results/**/*.xml
+          junit_files: tests/results/**/*.xml
           check_name: "${{ matrix.cfengine }} Test Results"
 
       - name: Upload Test Results to Artifacts
@@ -80,7 +81,7 @@ jobs:
         with:
           name: test-results-${{ matrix.cfengine }}
           path: |
-            test-harness/tests/results/**/*
+            tests/results/**/*
 
       - name: Show Server Log On Failures
         if: ${{ failure() }}
