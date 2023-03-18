@@ -30,6 +30,7 @@ jobs:
   #############################################
   build:
     name: Build & Publish
+    if: ${{ success() }}
     needs: tests
     runs-on: ubuntu-20.04
     steps:
