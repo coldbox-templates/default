@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ----
 
+## [6.18.0] => 2023-MAR-18
+
+### Fixed
+
+* GH actions
+
+----
+
 ## [6.17.0] => 2023-MAR-18
 
 ### Added
