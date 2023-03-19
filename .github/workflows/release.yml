@@ -66,6 +66,14 @@ jobs:
           force_push_tag: true
           message: "Latest Release"
 
+      - name: Create Github Release
+        uses: taiki-e/create-gh-release-action@v1.6.2
+        with:
+          title: ${{ env.VERSION }}
+          changelog: changelog.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: refs/tags/v${{ env.VERSION }}
+
       - name: Commit Version Bump
         uses: EndBug/add-and-commit@v9.1.1
         with:
