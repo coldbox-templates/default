@@ -32,7 +32,9 @@ component {
 			return { "error" : false, "data" : "Welcome to my awesome API!" };
 		} );
 
-		// Conventions based routing
+		// @app_routes@
+
+		// Conventions-Based Routing
 		route( ":handler/:action?" ).end();
 	}
 

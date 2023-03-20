@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ----
 
+## [6.20.0] => 2023-MAR-20
+
+### Added
+
+* Added routing conventions to make it easier for the cli to add routes.
+
+----
+
 ## [6.19.0] => 2023-MAR-20
 
 ### Added
