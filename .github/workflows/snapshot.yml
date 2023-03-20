@@ -1,4 +1,4 @@
-name: ForgeBox Release
+name: Snapshot Build
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: ForgeBox Release
+name: Production Build
 
 on:
   # Reusable workflow
