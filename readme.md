@@ -22,9 +22,11 @@
 
 ----
 
-# ColdBox Default Application Template
+# ColdBox Elixir Application Template
 
-This application template can be your starting ground for your modern ColdFusion (cfml) web applications.  You must use [CommandBox](http://www.ortussolutions.com/products/commandbox) to track your dependencies and start embedded servers.
+This template can be your starting ground for your modern ColdFusion (cfml) web applications.  You must use [CommandBox](http://www.ortussolutions.com/products/commandbox) to track your dependencies and start embedded servers.
+
+This template leverages ColdBox and the (ColdBox Elixir)[https://coldbox-elixir.ortusbooks.com] project for asset management and compilations.  You can place all your static assets in the `resources/assets` folder and Elixir will combine, version, copy, and even babelify your code to their appropriate location in the `includes` folder.
 
 ## Quick Installation
 
@@ -47,7 +49,7 @@ Code to your liking and enjoy!
 We have included a [`build/Dockerfile`](build/Dockerfile) so you can build docker containers from your source code.  We have also added two scripts in your `box.json` so you can build the docker image and run the docker image using our [CommandBox Docker](https://hub.docker.com/r/ortussolutions/commandbox) containers.
 
 ```bash
-# Build a docker container
+# Build a docker **container**
 run-script docker:build
 # Run the container
 run-script docker:run
