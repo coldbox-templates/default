@@ -1,0 +1,16 @@
+name: ForgeBox Release
+
+on:
+  push:
+    # Put the name of the major snapshot version below.
+    # Update on each major version
+    branches:
+      - 'v7.x'
+
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/release.yml
+    with:
+      doTests: true
+      snapshot: true

@@ -3,6 +3,11 @@ name: ForgeBox Release
 on:
   workflow_dispatch:
     inputs:
+       snapshot:
+          description: 'Is this a snapshot build'
+          required: false
+          default: false
+          type: boolean
        doTests:
           description: 'Run Tests Before release'
           required: false
@@ -55,10 +60,14 @@ jobs:
       - name: Publish To ForgeBox & Bump to next release
         run: |
           box forgebox publish --force
-          box bump --${{ inputs.versionType }} --!TagVersion
+          if [ !$inputs.snapshot ]
+          then
+            box bump --${{ inputs.versionType }} --!TagVersion
+          fi
 
       - name: Tag Version
         uses: rickstaa/action-create-tag@v1.6.1
+        if: ${{ !inputs.snapshot }}
         with:
           tag: "v${{ env.VERSION }}"
           force_push_tag: true
@@ -67,6 +76,7 @@ jobs:
       - name: Create Github Release
         uses: taiki-e/create-gh-release-action@v1.6.2
         continue-on-error: true
+        if: ${{ !inputs.snapshot }}
         with:
           title: ${{ env.VERSION }}
           changelog: changelog.md
@@ -75,6 +85,7 @@ jobs:
 
       - name: Commit Version Bump
         uses: EndBug/add-and-commit@v9.1.1
+        if: ${{ !inputs.snapshot }}
         with:
           author_name: Github Actions
           author_email: info@ortussolutions.com
