@@ -1,4 +1,4 @@
-name: Production Build
+name: Build Production Release
 
 on:
   # Reusable workflow
