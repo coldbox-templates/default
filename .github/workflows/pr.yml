@@ -5,11 +5,12 @@ on:
     branches-ignore:
       - "main"
       - "master"
+      - "development"
       - "v*"
   pull_request:
     branches:
-      - 'v*'
-      - 'development'
+      - "v*"
+      - "development"
 
 jobs:
   tests:
