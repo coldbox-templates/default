@@ -1,6 +1,6 @@
 {
-    "name":"Advanced Script APP Template",
-    "version":"7.0.0",
+    "name":"Default ColdBox App Template",
+    "version":"7.0.0-snapshot",
     "author":"You",
     "location":"forgeboxStorage",
     "slug":"cbtemplate-advanced-script",
@@ -17,7 +17,8 @@
     "shortDescription":"",
     "contributors":[],
     "ignore":[
-        "_tasks/**"
+        "changelog.md",
+        ".github/**"
     ],
     "devDependencies":{
         "testbox":"*",
@@ -26,20 +27,21 @@
         "commandbox-cfformat":"*"
     },
     "installPaths":{
-        "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "coldbox":"lib/vendor/coldbox/",
+        "testbox":"lib/vendor/testbox/"
     },
     "dependencies":{
         "coldbox":"^6.0.0"
     },
     "scripts":{
-        "postPublish":"!git push --follow-tags",
-        "postInstall":"pathExists .env || cp .env.example .env",
+        "postInstall":"pathExists .env || cp .env.example .env && package set ignore=[]",
         "format":"cfformat run config/,handlers/,interceptors/,models/,modules_app/,tests/specs/,*.cfc --overwrite",
         "format:check":"cfformat check config/,handlers/,interceptors/,models/,modules_app/,tests/specs/,*.cfc",
         "format:watch":"cfformat watch path='config/,handlers/,interceptors/,models/,modules_app/,tests/specs/,*.cfc' settingsPath='.cfformat.json'",
-        "build:docker":"!docker build --no-cache -t my-coldbox-app -f ./Dockerfile ./",
-        "run:docker":"!docker run -it -p 8080:8080 my-coldbox-app"
+        "docker:build":"!docker build --no-cache -t my-coldbox-app -f ./build/Dockerfile ./",
+        "docker:run":"!docker run -it -p 8080:8080 my-coldbox-app",
+        "docker:bash":"!docker run -it my-coldbox-app /bin/bash",
+        "docker:stack":"!docker compose -f build/docker-compose.yaml ${1}"
     },
     "testbox":{
         "runner":"/tests/runner.cfm"

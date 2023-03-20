@@ -11,8 +11,12 @@
 	<!---Base URL --->
 	<base href="#event.getHTMLBaseURL()#" />
 
-	<!---css --->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<!---
+		CSS
+		- Bootstrap
+		- Alpine.js
+	--->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 	<style>
 		.text-blue { color:##379BC1; }
@@ -34,7 +38,7 @@
 			<div class="container-fluid">
 				<!---Brand --->
 				<a class="navbar-brand" href="#event.buildLink( 'main' )#">
-					<strong><i class="bi bi-bounding-box-circles"></i> Welcome</strong>
+					<strong>Welcome</strong>
 				</a>
 
 				<!--- Mobile Toggler --->
@@ -67,18 +71,18 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
-									<a href="https://coldbox.org" class="dropdown-item">
+									<a href="https://coldbox.org" class="dropdown-item" target="_blank">
 										<i class="bi bi-journal-text"></i> Official Site
 									</a>
 								</li>
 								<li>
-									<a href="https://ortussolutions.atlassian.net/browse/COLDBOX" class="dropdown-item">
+									<a href="https://ortussolutions.atlassian.net/browse/COLDBOX" class="dropdown-item" target="_blank">
 										<i class="bi bi-bug"></i> Report a Bug
 									</a>
 								</li>
 								<li>
-									<a href="https://github.com/ColdBox/coldbox-platform/stargazers" class="dropdown-item">
-										<i class="bi bi-star"></i> Star Us
+									<a href="http://patreon.com/ortussolutions" class="dropdown-item" target="_blank">
+										<i class="bi bi-star"></i> Sponsor Us
 									</a>
 								</li>
 								<li>
@@ -91,7 +95,7 @@
 						</li>
 					</ul>
 
-					<!--- Community --->
+					<!--- Learn --->
 					<ul class="navbar-nav mb-2 mb-lg-0">
 						<li class="nav-item dropdown">
 							<a
@@ -106,16 +110,16 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
-									<a class="dropdown-item" href="https://coldbox.ortusbooks.com">Documentation</a>
+									<a class="dropdown-item" href="https://www.ortussolutions.com/blog" target="_blank">Blog</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="https://www.ortussolutions.com/blog">Blog</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="https://www.cfcasts.com/" target="_blank">Videos</a>
+									<a class="dropdown-item" href="https://www.cfcasts.com/" target="_blank">CFCasts</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="https://www.ortussolutions.com/services/training" target="_blank">Courses</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="https://coldbox.ortusbooks.com" target="_blank">Documentation</a>
 								</li>
 							</ul>
 						</li>
@@ -136,10 +140,10 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
-									<a class="dropdown-item" href="https://boxteam.herokuapp.com">Slack</a>
+									<a class="dropdown-item" href="https://boxteam.ortussolutions.com">Slack</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="https://groups.google.com/group/coldbox">Mailing List</a>
+									<a class="dropdown-item" href="https://community.ortussolutions.com/c/communities/coldbox/13">Mailing List</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="https://www.coldbox.org/support/overview">Community Support</a>
@@ -150,6 +154,24 @@
 							</ul>
 						</li>
 					</ul>
+
+					<form class="ms-auto d-flex">
+						<iframe
+							src="https://ghbtns.com/github-btn.html?user=coldbox&repo=coldbox-platform&type=star&count=true&size=large"
+							frameborder="0"
+							scrolling="0"
+							width="150"
+							height="30"
+							title="GitHub"></iframe>
+							<iframe
+								src="https://ghbtns.com/github-btn.html?user=coldbox&repo=coldbox-platform&type=watch&count=true&size=large&v=2"
+								frameborder="0"
+								scrolling="0"
+								width="150"
+								height="30"
+								title="GitHub"></iframe>
+					</form>
+
 				</div>
 			</div>
 		</nav>
@@ -175,8 +197,12 @@
 		</div>
 	</footer>
 
-	<!---js --->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<!---
+		JavaScript
+		- Bootstrap
+		- Alpine.js
+	--->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 </html>
