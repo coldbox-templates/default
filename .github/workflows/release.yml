@@ -1,6 +1,21 @@
 name: ForgeBox Release
 
 on:
+  # Reusable workflow
+  workflow_call:
+    inputs:
+       snapshot:
+          description: 'Is this a snapshot build'
+          required: false
+          default: true
+          type: boolean
+       doTests:
+          description: 'Run Tests Before release'
+          required: false
+          default: true
+          type: boolean
+
+  # Manual Trigger
   workflow_dispatch:
     inputs:
        snapshot:

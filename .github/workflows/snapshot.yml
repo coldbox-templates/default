@@ -2,11 +2,8 @@ name: ForgeBox Release
 
 on:
   push:
-    # Put the name of the major snapshot version below.
-    # Update on each major version
     branches:
-      - 'v7.x'
-
+      - 'development'
 
 jobs:
   call-workflow:
