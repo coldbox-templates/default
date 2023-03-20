@@ -21,7 +21,7 @@
         ".github/**"
     ],
     "devDependencies":{
-        "testbox":"*",
+        "testbox":"be",
         "commandbox-dotenv":"*",
         "commandbox-cfconfig":"*",
         "commandbox-cfformat":"*"
@@ -31,7 +31,7 @@
         "testbox":"lib/vendor/testbox/"
     },
     "dependencies":{
-        "coldbox":"^6.0.0"
+        "coldbox":"be"
     },
     "scripts":{
         "postInstall":"pathExists .env || cp .env.example .env && package set ignore=[]",
