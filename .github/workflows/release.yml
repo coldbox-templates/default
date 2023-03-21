@@ -96,7 +96,7 @@ jobs:
         uses: thomaseizinger/keep-a-changelog-new-release@1.3.0
         with:
           changelogPath: ./changelog.md
-          version: v${{ env.VERSION }}
+          tag: v${{ env.VERSION }}
 
       - name: Commit Changelog
         uses: EndBug/add-and-commit@v9.1.1
