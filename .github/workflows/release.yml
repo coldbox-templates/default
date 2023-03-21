@@ -50,6 +50,8 @@ jobs:
   format:
     name: Auto-Format and Commit
     runs-on: ubuntu-20.04
+    if: ${{ success() || !inputs.doTests }}
+    needs: [ tests ]
     steps:
       - uses: actions/checkout@v3.2.0
 
@@ -69,7 +71,7 @@ jobs:
   build:
     name: Build & Publish
     if: ${{ success() || !inputs.doTests }}
-    needs: tests
+    needs: [ tests, format ]
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout Repository
