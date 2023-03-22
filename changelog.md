@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.22.0] - 2023-03-22
+
 ### Regression
 
-- Reverted the `lib/vendor` convention as this is on cb7 not cb6.
+-   Reverted the `lib/vendor` convention as this is on cb7 not cb6.
 
 ## [v6.21.0] - 2023-03-21
 
@@ -51,6 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Docker build and compose consolidation to the `build` folder
 -   Cleanup of `tests` to new standards
 
-[Unreleased]: https://github.com/coldbox-templates/default/compare/v6.21.0...HEAD
+[Unreleased]: https://github.com/coldbox-templates/default/compare/v6.22.0...HEAD
+
+[6.22.0]: https://github.com/coldbox-templates/default/compare/v6.21.0...v6.22.0
 
 [v6.21.0]: https://github.com/coldbox-templates/default/compare/5b75dd33dd6eadb24b3012f894d6eb0dc7799179...v6.21.0
