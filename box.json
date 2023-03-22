@@ -16,10 +16,7 @@
     "bugs":"",
     "shortDescription":"",
     "contributors":[],
-    "ignore":[
-        "changelog.md",
-        ".github/**"
-    ],
+    "ignore":[],
     "devDependencies":{
         "testbox":"*",
         "commandbox-dotenv":"*",
@@ -27,8 +24,8 @@
         "commandbox-cfformat":"*"
     },
     "installPaths":{
-        "coldbox":"lib/vendor/coldbox/",
-        "testbox":"lib/vendor/testbox/"
+        "coldbox":"coldbox/",
+        "testbox":"testbox/"
     },
     "dependencies":{
         "coldbox":"^6.0.0"
