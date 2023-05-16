@@ -115,15 +115,58 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: refs/tags/v${{ env.VERSION }}
 
-      - name: Bump Version
-        if: env.SNAPSHOT == 'false'
-        run: |
-          box bump --${{ env.VERSION_TYPE }} --!TagVersion
+      - name: Upload Build Artifacts
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-template
+          path: |
+            box.json
+            changelog.md
 
+  ##########################################################################################
+  # Prep Next Release
+  ##########################################################################################
+  prep_next_release:
+    name: Prep Next Release
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-20.04
+    needs: [ build ]
+    steps:
+      # Checkout development
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          ref: development
+
+      - name: Setup CommandBox
+        uses: Ortus-Solutions/setup-commandbox@v2.0.1
+        with:
+          forgeboxAPIKey: ${{ secrets.FORGEBOX_TOKEN }}
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: app-template
+          path: .tmp
+
+      # Copy the changelog to the development branch
+      - name: Copy Changelog
+        run: |
+          cp .tmp/changelog.md changelog.md
+
+      # Bump to next version
+      - name: Bump Version
+        run: |
+          box bump --minor --!TagVersion
+
+      # Commit it back to development
       - name: Commit Version Bump
         uses: EndBug/add-and-commit@v9.1.1
-        if: env.SNAPSHOT == 'false'
         with:
           author_name: Github Actions
           author_email: info@ortussolutions.com
           message: 'Version bump'
+          add: |
+            box.json
+            changelog.md
