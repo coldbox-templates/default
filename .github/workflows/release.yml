@@ -67,9 +67,9 @@ jobs:
           if [ $GITHUB_REF == 'refs/heads/development' ]
           then
             echo "BRANCH=development" >> $GITHUB_ENV
-            box package set version=${{ env.VERSION }}-snapshot
+            box package set version=$VERSION-snapshot
           else
-            box package set version=${{ env.VERSION }}+${{ github.run_number }}
+            box package set version=$VERSION+${{ github.run_number }}
           fi
 
       - name: Update changelog [unreleased] with latest version release
