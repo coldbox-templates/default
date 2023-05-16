@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [7.0.0] - 2023-05-16
+### Fixed
+
+- Added correct dependency versions
 
 ## [6.20.0] => 2023-MAR-20
 
@@ -41,7 +43,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - vscode introspection and helpers
 - Docker build and compose consolidation to the `build` folder
 - Cleanup of `tests` to new standards
-
-[Unreleased]: https://github.com/coldbox-templates/default/compare/v7.0.0...HEAD
-
-[7.0.0]: https://github.com/coldbox-templates/default/compare/4d0f221758b1ed56dd435cadb5dbd92a9305689e...v7.0.0
