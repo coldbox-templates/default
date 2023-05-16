@@ -60,7 +60,8 @@ jobs:
 
       - name: Prepare For Build
         run: |
-          echo "VERSION=`cat box.json | jq '.version' -r`" >> $GITHUB_ENV
+          export VERSION=`cat box.json | jq '.version' -r`
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
           # master or snapshot
           echo "Github Ref is $GITHUB_REF"
           echo "BRANCH=master" >> $GITHUB_ENV
@@ -103,6 +104,7 @@ jobs:
 
       - name: Publish To ForgeBox
         run: |
+          cat box.json
           box forgebox publish --force
 
       - name: Create Github Release
