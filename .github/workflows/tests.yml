@@ -1,10 +1,6 @@
 name: Test Suites
 
 on:
-  push:
-    branches:
-      - "v6.x"
-      - "v7.x"
   workflow_call:
 
 jobs:
@@ -14,6 +10,7 @@ jobs:
     env:
       DB_USER: root
       DB_PASSWORD: root
+      WEB_PORT: 60299
     strategy:
       fail-fast: false
       matrix:
@@ -57,18 +54,21 @@ jobs:
 
       - name: Start ${{ matrix.cfengine }} Server
         run: |
-          box server start serverConfigFile="server-${{ matrix.cfengine }}.json" --noSaveSettings --debug
-          curl http://127.0.0.1:60299
+          box server set web.http.port=${{ env.WEB_PORT }}
+          box server set app.cfengine=${{ matrix.cfengine }}
+          box server start --debug
+          curl http://127.0.0.1:${{ env.WEB_PORT }}
 
       - name: Run Tests
         run: |
-          box testbox run --verbose outputFile=test-harness/tests/results/test-results outputFormats=json,antjunit
+          mkdir -p tests/results
+          box testbox run --verbose outputFile=tests/results/test-results outputFormats=json,antjunit
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
-          junit_files: test-harness/tests/results/**/*.xml
+          junit_files: tests/results/**/*.xml
           check_name: "${{ matrix.cfengine }} Test Results"
 
       - name: Upload Test Results to Artifacts
@@ -77,12 +77,12 @@ jobs:
         with:
           name: test-results-${{ matrix.cfengine }}
           path: |
-            test-harness/tests/results/**/*
+            tests/results/**/*
 
       - name: Show Server Log On Failures
         if: ${{ failure() }}
         run: |
-          box server log serverConfigFile="server-${{ matrix.cfengine }}.json"
+          box server log
 
       - name: Upload Debug Logs To Artifacts
         if: ${{ failure() }}
