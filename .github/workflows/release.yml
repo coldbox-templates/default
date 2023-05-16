@@ -80,7 +80,8 @@ jobs:
           changelogPath: ./changelog.md
           tag: v${{ env.VERSION }}
 
-      - name: Build
+      - name: Lint Changelog
+        if: env.SNAPSHOT == 'false'
         run: |
           npm install -g markdownlint-cli
           markdownlint changelog.md --fix
