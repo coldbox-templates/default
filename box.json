@@ -1,6 +1,6 @@
 {
     "name":"Default ColdBox App Template",
-    "version":"7.0.0-snapshot",
+    "version":"7.0.0",
     "author":"You",
     "location":"forgeboxStorage",
     "slug":"cbtemplate-advanced-script",
