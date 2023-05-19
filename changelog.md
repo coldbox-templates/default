@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Changed `renderView()` to new standard of `view()`
+- Added `allowPublicKeyRetrieval=true` to the `db` connection string
 
 ## [7.2.0] - 2023-05-16
 
