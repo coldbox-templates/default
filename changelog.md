@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Gitignore updates so it doesn't ignore 'config/modules'
+
 ## [7.3.0] - 2023-05-19
 
 ### Fixed
