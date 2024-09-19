@@ -40,9 +40,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>TestBox Browser</title>
 	<meta charset="utf-8">
 	<meta name="generator" content="TestBox v#TESTBOX_VERSION#">
-	<title>TestBox Browser</title>
+	<base href="/tests/" target="_blank">
 	<cfoutput>
 		<style>#fileRead( '#ASSETS_DIR#/css/main.css' )#</style>
 		<script>#fileRead( '#ASSETS_DIR#/js/jquery-3.3.1.min.js' )#</script>
@@ -108,7 +109,7 @@
 						<cfif qResults.type eq "Dir">
 							<a
 								class="btn btn-secondary btn-sm my-1"
-								href="index.cfm?path=#urlEncodedFormat( url.path & qResults.name )#"
+								href="index.cfm?path=#urlEncodedFormat( url.path & "/" &  qResults.name )#"
 							>
 								&##x271A; #qResults.name#
 							</a>
