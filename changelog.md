@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Gitignore updates so it doesn't ignore 'config/modules'
+
+## [7.3.0] - 2023-05-19
+
+### Fixed
+
 - Changed `renderView()` to new standard of `view()`
 - Added `allowPublicKeyRetrieval=true` to the `db` connection string
 - Added missing bundle name and version in `.cfconfig.json` and `.env.example`
