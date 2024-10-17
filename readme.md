@@ -44,6 +44,12 @@ box server start
 
 Code to your liking and enjoy!
 
+## Java Dependencies
+
+If your project relies on Java third-party dependencies, you can use the included Maven `pom.xml` file in the root.  You can add your dependencies there and then run the `mvn install` command to download them into the `lib/java` folder.  The ColdBox application will automatically class load all the jars in that folder for you!  You can also use the `mvn clean` command to remove all the jars.
+
+You can find Java dependencies here: <https://central.sonatype.com/>.  Just grab the Maven coordinates and add them to your `pom.xml` file.
+
 ## Dockerfile
 
 We have included a [`build/Dockerfile`](build/Dockerfile) so you can build docker containers from your source code.  We have also added two scripts in your `box.json` so you can build the docker image and run the docker image using our [CommandBox Docker](https://hub.docker.com/r/ortussolutions/commandbox) containers.
