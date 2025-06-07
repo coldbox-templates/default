@@ -52,7 +52,7 @@ You can find Java dependencies here: <https://central.sonatype.com/>.  Just grab
 
 ## Dockerfile
 
-We have included a [`build/Dockerfile`](build/Dockerfile) so you can build docker containers from your source code.  We have also added two scripts in your `box.json` so you can build the docker image and run the docker image using our [CommandBox Docker](https://hub.docker.com/r/ortussolutions/commandbox) containers.
+We have included a [`docker/Dockerfile`](docker/Dockerfile) so you can build docker containers from your source code.  We have also added two scripts in your `box.json` so you can build the docker image and run the docker image using our [CommandBox Docker](https://hub.docker.com/r/ortussolutions/commandbox) containers.
 
 ```bash
 # Build a docker **container**
@@ -65,7 +65,7 @@ run-script docker:bash
 
 ## Docker Compose Stack
 
-We have included a [`build/docker-compose.yaml`](build/docker-compose.yml) stack that can be used to run the application in a container alongside a database.  We have included support for MySQL, PostgreSQL and MSSQL.  We have also included the `run-script docker:stack` command you so you compose the stack up or down.
+We have included a [`docker/docker-compose.yaml`](docker/docker-compose.yml) stack that can be used to run the application in a container alongside a database.  We have included support for MySQL, PostgreSQL and MSSQL.  We have also included the `run-script docker:stack` command you so you compose the stack up or down.
 
 ```bash
 run-script docker:stack up
