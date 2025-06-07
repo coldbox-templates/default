@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- More maven pom.xml files for better IDE support
+
 ### Fixed
 
 - Gitignore updates so it doesn't ignore 'config/modules'

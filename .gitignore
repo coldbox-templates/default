@@ -2,13 +2,14 @@
 .DS_Store
 settings.xml
 WEB-INF
+.effective-pom.xml
 
 # Engines + Database + CBFS + Secrets
 .tmp/**
 .env
 .engine/**
 .cbfs/**
-build/.db/**
+docker/.db/**
 grapher/**
 
 # logs + tests
@@ -21,6 +22,7 @@ npm-debug.log
 yarn-error.log
 
 ## Ignored Dependencies
+effective-pom.xml
 /coldbox/**
 /testbox/**
 /modules/**
