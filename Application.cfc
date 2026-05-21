@@ -28,7 +28,7 @@ component {
 	 * Modify only if you need to, else default them: https://cfdocs.org/application-cfc
 	 */
 	this.javaSettings = {
-		loadPaths               : [ expandPath( "./lib" ) ],
+		loadPaths               : [ expandPath( "./lib/java" ) ],
 		loadColdFusionClassPath : true,
 		reloadOnChange          : false
 	};
@@ -50,6 +50,8 @@ component {
 	COLDBOX_APP_KEY       = "";
 	// By default if a reinit is issued, other requests fail and wait.
 	COLDBOX_FAIL_FAST     = true;
+	// If you have a web mapping to your app, set it here for remote purposes or static purposes
+	COLDBOX_WEB_MAPPING   = "";
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -59,7 +61,7 @@ component {
 	 * - coldbox : Where ColdBox library is installed
 	 */
 	this.mappings[ "/app" ]     = COLDBOX_APP_ROOT_PATH;
-	this.mappings[ "/coldbox" ] = COLDBOX_APP_ROOT_PATH & "coldbox";
+	this.mappings[ "/coldbox" ] = COLDBOX_APP_ROOT_PATH & "lib/coldbox";
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -77,7 +79,9 @@ component {
 			COLDBOX_CONFIG_FILE,
 			COLDBOX_APP_ROOT_PATH,
 			COLDBOX_APP_KEY,
-			COLDBOX_APP_MAPPING
+			COLDBOX_APP_MAPPING,
+			COLDBOX_FAIL_FAST,
+			COLDBOX_WEB_MAPPING
 		);
 		application.cbBootstrap.loadColdbox();
 		return true;

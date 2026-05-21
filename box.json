@@ -1,6 +1,6 @@
 {
     "name":"Flat ColdBox App Template",
-    "version":"8.3.0",
+    "version":"8.4.0",
     "author":"You",
     "location":"forgeboxStorage",
     "slug":"cbtemplate-flat",
@@ -16,24 +16,17 @@
     "bugs":"",
     "shortDescription":"",
     "contributors":[],
-    "ignore":[
-        "changelog.md",
-        ".github/ISSUE_TEMPLATE",
-        ".github/workflows/*",
-        ".github/CONTRIBUTING.md",
-        ".github/FUNDING.YML",
-        ".github/PULL_REQUEST_TEMPLATE.md"
-    ],
+    "ignore":[],
     "devDependencies":{
-        "testbox":"^6.0.0",
+        "testbox":"*",
         "commandbox-boxlang":"*"
     },
     "dependencies":{
         "coldbox":"^8.0.0"
     },
     "installPaths":{
-        "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "coldbox":"lib/coldbox/",
+        "testbox":"lib/testbox/"
     },
     "scripts":{
         "postInstall":"pathExists .env || cp .env.example .env && package set ignore=[]",
