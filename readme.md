@@ -81,56 +81,102 @@ Before getting started, ensure you have the following installed on your operatin
 The Flat template follows the traditional ColdBox HMVC structure with all files in the web root:
 
 ```
-├── 📄 Application.cfc          # Application bootstrap & settings
-├── 📄 index.cfm                # Front controller
-├── 🎨 favicon.ico              # Site favicon
-├── 🤖 robots.txt               # SEO robots file
+.
+├── 📄 Application.cfc              # Application bootstrap & settings
+├── 📄 index.cfm                    # Front controller
+├── 🎨 favicon.ico                  # Site favicon
+├── 🤖 robots.txt                   # SEO robots file
+├── 📄 box.json                     # CommandBox package descriptor
+├── 📄 server.json                  # CommandBox Server configuration
+├── 📄 changelog.md                 # Version changelog
+├── 📄 pom.xml                      # Maven Java dependencies
+├── 📄 .bxformat.json               # Code formatting rules
+├── 📄 .cfconfig.json               # CF engine configuration
+├── 📄 .dockerignore                # Docker ignore patterns
+├── 📄 .editorconfig                # Editor configuration
+├── 📄 .env                         # Environment variables
+├── 📄 .env.example                 # Environment variables template
+├── 📄 .gitattributes               # Git attributes
+├── 📄 .gitignore                   # Git ignore patterns
+├── 📄 .markdownlint.json           # Markdown linter rules
 │
-├── 📂 config/                  # Application configuration
-│   ├── ColdBox.cfc            # Framework settings
-│   ├── Router.cfc             # URL routing definitions
-│   └── WireBox.cfc            # Optional DI mappings
+├── 📂 .github/                     # GitHub community files
+│   ├── CONTRIBUTING.md
+│   ├── FUNDING.YML
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── BUG_REPORT.md
+│   │   └── FEATURE_REQUEST.md
+│   └── workflows/
+│       ├── lts.yml
+│       ├── pr.yml
+│       ├── release.yml
+│       ├── snapshot.yml
+│       └── tests.yml
 │
-├── 📂 handlers/                # Event handlers (controllers)
-│   └── Main.cfc               # Default handler
+├── 📂 .vscode/                     # VSCode settings & tasks
+│   ├── settings.json
+│   └── tasks.json
 │
-├── 📂 models/                  # Business logic layer
+├── 📂 config/                      # Application configuration
+│   ├── .htaccess                   # Web server access rules
+│   ├── Application.cfc             # Config directory protection
+│   ├── Coldbox.cfc                 # Framework settings
+│   ├── Router.cfc                  # URL routing definitions
+│   ├── WireBox.cfc                 # DI container configuration
+│   ├── CacheBox.cfc                # Caching configuration
+│   └── Scheduler.cfc               # Scheduled tasks
+│
+├── 📂 handlers/                    # Event handlers (controllers)
+│   └── Main.cfc                    # Default handler
+│
+├── 📂 models/                      # Business logic layer
 │   └── (your models here)
 │
-├── 📂 views/                   # View templates
-│   └── main/                  # Views for Main handler
+├── 📂 views/                       # View templates
+│   ├── Application.cfc             # Views directory protection
+│   └── main/                       # Views for Main handler
+│       ├── index.cfm
+│       └── indexHelper.cfm
 │
-├── 📂 layouts/                 # Layout templates
-│   └── Main.cfm               # Default layout
+├── 📂 layouts/                     # Layout templates
+│   └── Main.cfm                    # Default layout
 │
-├── 📂 includes/                # Public assets (CSS, JS, images)
-│   ├── css/
-│   ├── js/
+├── 📂 includes/                    # Shared includes & assets
+│   ├── helpers/
+│   │   └── ApplicationHelper.cfm   # Global helper methods
+│   ├── i18n/
+│   │   └── i18n_goes_here.txt      # i18n resources placeholder
 │   └── images/
+│       └── ColdBoxLogo2015_300.png
 │
-├── 📂 modules_app/             # Application modules
+├── 📂 modules_app/                 # Application modules (HMVC)
 │   └── (your modules here)
 │
-├── 📂 tests/                   # Test suites
-│   ├── specs/                 # Test specifications
-│   │   ├── integration/       # Integration tests
-│   │   └── unit/              # Unit tests
-│   ├── Application.cfc        # Test bootstrap
-│   └── runner.cfm             # Test runner
+├── 📂 tests/                       # Test suites
+│   ├── Application.cfc             # Test bootstrap
+│   ├── index.bxm                   # BoxLang CLI test runner
+│   ├── index.cfm                   # CFML CLI test runner
+│   ├── runner.bxm                  # BoxLang HTML test runner
+│   ├── runner.cfm                  # CFML HTML test runner
+│   ├── test.xml                    # CI test configuration
+│   ├── specs/
+│   │   ├── integration/            # Integration tests
+│   │   │   └── MainSpec.cfc
+│   │   └── unit/                   # Unit tests
+│   │       └── (your tests here)
+│   ├── resources/                  # Test resources
+│   │   └── (your test data here)
+│   └── assets/                     # Test runner assets (CSS, JS, images)
 │
-├── 📂 lib/                     # Framework libraries
-│   ├── coldbox/               # ColdBox framework
-│   └── testbox/               # TestBox testing framework
-│
-├── 📂 docker/                  # Docker configuration
+├── 📂 docker/                      # Docker configuration
 │   ├── Dockerfile
 │   └── docker-compose.yml
 │
-├── 📄 box.json                 # CommandBox package descriptor
-├── 📄 server.json              # Server configuration
-├── 📄 .env                     # Environment variables
-├── 📄 pom.xml                  # Maven Java dependencies
-└── 📄 .cfformat.json           # Code formatting rules
+└── 📂 lib/                         # Framework libraries & Java dependencies
+    ├── coldbox/                    # ColdBox framework
+    ├── testbox/                    # TestBox testing framework
+    └── java/                       # Java JARs (via Maven)
 ```
 
 ### Key Directories
@@ -139,10 +185,11 @@ The Flat template follows the traditional ColdBox HMVC structure with all files 
 - **`models/`** - Service objects, beans, and business logic
 - **`views/`** - HTML templates rendered by handlers
 - **`layouts/`** - Page layouts that wrap views
-- **`config/`** - Application and framework configuration
+- **`config/`** - Application and framework configuration including caching, scheduling, routing, and DI
+- **`includes/`** - Shared helpers, i18n resources, and static assets
 - **`tests/`** - BDD/TDD test suites using TestBox
 - **`modules_app/`** - Modular HMVC applications within your app
-- **`lib/`** - Third-party frameworks installed by CommandBox
+- **`docker/`** - Docker and Docker Compose configuration
 
 ## 🚀 Quick Start
 
@@ -157,7 +204,7 @@ box install
 This command reads `box.json` and installs:
 - **ColdBox** framework to `lib/coldbox/`
 - **TestBox** testing framework to `lib/testbox/`
-- **Development tools** (cfformat, coldbox-cli, testbox-cli)
+- **Development tools** (BoxLang for formatting, plus optional coldbox-cli and testbox-cli)
 
 ### 2. Start the Server
 
@@ -190,7 +237,7 @@ The Flat template uses a simple bootstrap flow:
 │ 1. User Request → index.cfm (Front Controller)              │
 │ 2. index.cfm calls Application.cfc                          │
 │ 3. Application.cfc bootstraps ColdBox framework             │
-│ 4. ColdBox loads config/ColdBox.cfc                         │
+│ 4. ColdBox loads config/Coldbox.cfc                         │
 │ 5. ColdBox loads config/Router.cfc                          │
 │ 6. ColdBox executes handler action                          │
 │ 7. Handler renders view/layout or returns data              │
@@ -202,22 +249,39 @@ The Flat template uses a simple bootstrap flow:
 **`Application.cfc`** - Application bootstrap:
 ```cfml
 component {
-    this.name = "My ColdBox Application";
-    this.sessionManagement = true;
+
+    this.name                 = "My ColdBox Application";
+    this.sessionManagement    = true;
+    this.sessionTimeout       = createTimespan( 0, 1, 0, 0 );
+    this.setClientCookies     = true;
+    this.setDomainCookies     = true;
+    this.scriptProtect        = false;
+    this.secureJSON           = false;
+    this.timezone             = "UTC";
+    this.whiteSpaceManagement = "smart";
+
+    // Java integration for lib/java folder
+    this.javaSettings = {
+        loadPaths               : [ expandPath( "./lib/java" ) ],
+        loadColdFusionClassPath : true,
+        reloadOnChange          : false
+    };
 
     // ColdBox Bootstrap Settings
-    COLDBOX_APP_ROOT_PATH = getDirectoryFromPath(getCurrentTemplatePath());
-    COLDBOX_APP_MAPPING = "";
-    COLDBOX_CONFIG_FILE = "";
+    COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
+    COLDBOX_APP_MAPPING   = "";
+    COLDBOX_CONFIG_FILE   = "";
+    COLDBOX_APP_KEY       = "";
+    COLDBOX_FAIL_FAST     = true;
+    COLDBOX_WEB_MAPPING   = "";
 
-    // Java integration for lib/ folder
-    this.javaSettings = {
-        loadPaths: [expandPath("./lib")]
-    };
+    // Location Mappings
+    this.mappings[ "/app" ]     = COLDBOX_APP_ROOT_PATH;
+    this.mappings[ "/coldbox" ] = COLDBOX_APP_ROOT_PATH & "lib/coldbox";
 }
 ```
 
-**`config/ColdBox.cfc`** - Framework configuration:
+**`config/Coldbox.cfc`** - Framework configuration:
 - Application name and settings
 - Event handlers and implicit events
 - Module locations
@@ -233,17 +297,14 @@ component {
 
 ### Code Formatting
 
-Format your code using CFFormat:
+Format your code using the BoxLang formatter:
 
 ```bash
-# Format all CFML code
+# Format all code
 box run-script format
 
 # Check formatting without changes
 box run-script format:check
-
-# Watch for changes and auto-format
-box run-script format:watch
 ```
 
 ### Running Tests
@@ -307,12 +368,18 @@ The Flat template includes a comprehensive testing setup using **TestBox**, a BD
 ```
 tests/
 ├── Application.cfc          # Test bootstrap
-├── runner.cfm               # Browser test runner
-└── specs/
-    ├── integration/         # Integration tests (test full request lifecycle)
-    │   └── MainSpec.cfc
-    └── unit/                # Unit tests (test individual components)
-        └── (your tests here)
+├── index.bxm                # BoxLang CLI test runner
+├── index.cfm                # CFML CLI test runner
+├── runner.bxm               # BoxLang browser test runner
+├── runner.cfm               # CFML browser test runner
+├── test.xml                 # CI test configuration
+├── specs/
+│   ├── integration/         # Integration tests (full request lifecycle)
+│   │   └── MainSpec.cfc
+│   └── unit/                # Unit tests (individual components)
+│       └── (your tests here)
+├── resources/               # Test data and fixtures
+└── assets/                  # Test runner assets (CSS, JS, images)
 ```
 
 ### Running Tests
@@ -415,7 +482,7 @@ If your project relies on Java third-party libraries, you can use the included M
 mvn install
 ```
 
-This downloads all JARs to the `lib/` folder, which is automatically loaded by `Application.cfc` via `this.javaSettings.loadPaths`.
+This downloads all JARs to the `lib/java/` folder by default. Configure the output directory in your `pom.xml` or update `this.javaSettings.loadPaths` in `Application.cfc` to point to your desired path.
 
 ### Managing Java Dependencies
 
@@ -432,13 +499,13 @@ mvn versions:use-latest-versions
 
 ### Automatic Class Loading
 
-The `Application.cfc` automatically loads all JARs from the `lib/` folder:
+The `Application.cfc` automatically loads all JARs from the `lib/java/` folder:
 
 ```cfml
 this.javaSettings = {
-    loadPaths: [expandPath("./lib")],
-    loadColdFusionClassPath: true,
-    reloadOnChange: false
+    loadPaths               : [ expandPath( "./lib/java" ) ],
+    loadColdFusionClassPath : true,
+    reloadOnChange          : false
 };
 ```
 
@@ -518,32 +585,43 @@ cp .env.example .env
 2. **Edit `.env`** with your settings:
 
 ```properties
-# Application Settings
-APPNAME=My Awesome App
+# ColdBox Name and Environment
+APPNAME=ColdBox
 ENVIRONMENT=development
 
-# Database Settings
-DB_HOST=localhost
+# Database Information
+DB_CONNECTIONSTRING=jdbc:mysql://127.0.0.1:3306/coldbox?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useLegacyDatetimeCode=true&allowPublicKeyRetrieval=true
+DB_CLASS=com.mysql.jdbc.Driver
+DB_BUNDLENAME=com.mysql.cj
+DB_BUNDLEVERSION=8.0.30
+DB_DRIVER=MySQL
+DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_NAME=myapp
+DB_DATABASE=coldbox
 DB_USER=root
-DB_PASSWORD=secret
+DB_PASSWORD=
 
-# API Keys
-API_KEY=your-api-key-here
+# JWT Information
+JWT_SECRET=
+
+# S3 Information
+S3_ACCESS_KEY=
+S3_SECRET_KEY=
+S3_REGION=us-east-1
+S3_DOMAIN=amazonaws.com
 ```
 
 3. **Access in your code** using `getSystemSetting()`:
 
 ```cfml
-// In config/ColdBox.cfc
+// In config/Coldbox.cfc
 variables.coldbox = {
     appName: getSystemSetting("APPNAME", "Default App Name")
 };
 
 // In your handlers/models
 var dbHost = getSystemSetting("DB_HOST", "localhost");
-var apiKey = getSystemSetting("API_KEY");
+var dbPassword = getSystemSetting("DB_PASSWORD");
 ```
 
 ### Environment Detection
@@ -554,7 +632,7 @@ The template automatically detects the environment:
 - **Staging** - Pre-production environment
 - **Production** - Live environment
 
-Configure environment-specific settings in `config/ColdBox.cfc`:
+Configure environment-specific settings in `config/Coldbox.cfc`:
 
 ```cfml
 function development() {
